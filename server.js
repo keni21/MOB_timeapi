@@ -7,7 +7,6 @@ const cors = require('cors')
 
 // Get our API routes
 const users = require('./server/routes/users');
-const products = require('./server/routes/products');
 
 
 const app = express();
@@ -27,7 +26,7 @@ app.use(express.static(path.join(__dirname, 'dist')));
 
 // Set our api routes
 app.use('/users', users);
-app.use('/products', products);
+
 
 
 /**

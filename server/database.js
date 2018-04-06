@@ -1,6 +1,6 @@
 const Loki = require("lokijs");
 const User = require('./entities/User');
-const Product = require('./entities/Product');
+
 
 const db = new Loki('demo.json');
 
