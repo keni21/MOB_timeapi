@@ -4,11 +4,7 @@ const User = require("../entities/User");
 const db = require("../database");
 
 router.get("/", getAllUsers);
-router.get("/:userId", getUser);
-router.post("/", addUser);
-router.delete("/:userId", deleteUser);
-router.patch("/:userId", editUser);
-router.post("/authenticate", authenticate);
+
 
 let collection = db.getCollection("users");
 
