@@ -1,8 +1,7 @@
 class Task {
-    constructor(name, description, project) {
+    constructor(name, time) {
         this.name = name;
-        this.description = description;
-        this.project = project;
+        this.time = time;
     }
 
     toJSON() {
