@@ -1,13 +1,12 @@
 class Task {
     constructor(name, time) {
         this.name = name;
-        this.time = time;
+        this.time = 0;
     }
 
     toJSON() {
         let task = Object.assign({}, this);
         task.meta = undefined;
-        task.id = this.$loki;
         return task;
     }
 }
