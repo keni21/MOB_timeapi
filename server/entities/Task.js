@@ -3,7 +3,7 @@ class Task {
         this.id = this.$loki;
         this.name = name;
         this.time = 0;
-        this.userId = 1;
+        this.userid = 1;
         //User ID hinzufügen (verknüpfung zum user)
     }
 
