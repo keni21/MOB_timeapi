@@ -6,6 +6,7 @@ const db = require("../database");
 router.get("/", getAllTasks);
 router.get("/:ID", singleTask);
 router.post("/:ID", updateTask);
+router.delete("/:ID", deleteTask);
 
 
 let taskCollection = db.getCollection("tasks");
@@ -32,6 +33,13 @@ function updateTask(req, res){
     taskCollection.update(task);
     res.json(taskCollection.get(req.params.ID));
 
+}
+
+function deleteTask(req, res)
+{
+    let task = taskCollection.get(req.params.ID);
+    taskCollection.remove(task);
+    res.json(task);
 }
 
 module.exports = router;
