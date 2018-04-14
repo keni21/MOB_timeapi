@@ -41,18 +41,25 @@ function createTask(req, res) {
     res.json(taskCollection.find());
 }
 
-function updateTask(req, res){
+function updateTask(req, res) {
     let task = taskCollection.get(req.params.ID);
     //console.log(task.time);
     //console.log(task);
     //console.log(req.body.time);
     //hier muss richtig vorgegangen werden, damit man auf den Wert zugreift
     let addtime = req.body.time;
+    let testtime = (task.time + addtime);
+    //Abfrage auf minus Zeit durchführen
+    if (testtime < 0) {
+        res.json(false);
+    } else {
+        //Fügt Zeit hinzu oder rechnet Zeit weg ja nach vorzeichenwert
+        task.time += addtime;
+        //console.log(task.time);
+        taskCollection.update(task);
+    }
 
-    //Fügt Zeit hinzu oder rechnet Zeit weg ja nach vorzeichenwert
-    task.time += addtime;
-    console.log(task.time);
-    taskCollection.update(task);
+
     res.json(taskCollection.get(req.params.ID));
 
 }
