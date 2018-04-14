@@ -15,6 +15,10 @@ users.insert(new User("Matthias"));
 users.insert(new User("Philipp"));
 users.insert(new User("Steve"));
 
-tasks.insert(new Task("Test Task"));
+tasks.insert(new Task("Test Task",'','1'));
+tasks.insert(new Task("Test Task2",'','1'));
+tasks.insert(new Task("Test Task2",'','2'));
+
+
 
 module.exports = db;

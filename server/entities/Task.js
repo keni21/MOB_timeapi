@@ -1,10 +1,11 @@
 class Task {
-    constructor(name, time) {
+    constructor(name, time, userid) {
         this.id = this.$loki;
         this.name = name;
         this.time = 0;
-        this.userid = 1;
         //User ID hinzufügen (verknüpfung zum user)
+        this.userid = userid;
+
     }
 
     toJSON() {

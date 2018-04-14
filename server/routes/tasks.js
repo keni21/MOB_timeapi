@@ -7,7 +7,7 @@ const Task = require("../entities/Task");
 
 router.get("/", getAllTasks);
 router.post("/", createTask);
-router.get("/:ID", singleTask);
+router.get("/:ID", getTaskbyuserid);
 router.post("/:ID", updateTask);
 router.delete("/:ID", deleteTask);
 
@@ -19,16 +19,23 @@ function getAllTasks(req, res){
     res.json(taskCollection.find());
 }
 
-function singleTask (req, res){
-    res.json(taskCollection.get(req.params.ID));
+function getTaskbyuserid (req, res){
+    //abfrage auf User ID
+    let usertask = taskCollection.where(checkid);
+    function checkid(daten) {return (daten.userid == req.params.ID); }
+    //Rückgabe von Daten
+    res.json(usertask);
 }
 function createTask(req, res) {
     let name = req.body.name;
+    let userid = req.body.userid;
     //hier abfrage ob Task schon vorhanden ist
+    //where function auslesen und if für fehler Ausgabe
 
     //danach anlegen von neuem Task wenn noch nicht vorhanden
     let task = new Task();
     task.name = name;
+    this.userid = userid;
     taskCollection.insert(task);
 
     res.json(taskCollection.find());
