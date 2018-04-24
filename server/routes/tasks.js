@@ -35,7 +35,7 @@ function createTask(req, res) {
     //danach anlegen von neuem Task wenn noch nicht vorhanden
     let task = new Task();
     task.name = name;
-    this.userid = userid;
+    task.userid = userid;
     taskCollection.insert(task);
 
     res.json(taskCollection.find());
