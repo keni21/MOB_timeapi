@@ -10,6 +10,7 @@ class Task {
 
     toJSON() {
         let task = Object.assign({}, this);
+        task.id = this.$loki;
         task.meta = undefined;
         return task;
     }
