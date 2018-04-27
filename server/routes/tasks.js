@@ -47,7 +47,7 @@ function updateTask(req, res) {
     //console.log(task);
     //console.log(req.body.time);
     //hier muss richtig vorgegangen werden, damit man auf den Wert zugreift
-    let addtime = req.body.time;
+    let addtime = parseInt(req.body.time);
     let testtime = (task.time + addtime);
     //Abfrage auf minus Zeit durchführen
     if (testtime < 0) {
